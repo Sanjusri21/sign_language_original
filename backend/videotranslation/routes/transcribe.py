@@ -1,6 +1,6 @@
 import os
 from flask import Blueprint, request, jsonify
-from services.whisper_service import transcribe_audio
+from videotranslation.services.whisper_service import transcribe_audio
 
 transcribe_bp = Blueprint("transcribe", __name__)
 

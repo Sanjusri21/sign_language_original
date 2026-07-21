@@ -2,11 +2,11 @@ import os
 import uuid
 from flask import Blueprint, request, jsonify
 from werkzeug.utils import secure_filename
-from services.ffmpeg_service import extract_audio
+from videotranslation.services.ffmpeg_service import extract_audio
 
 upload_bp = Blueprint("upload", __name__)
 
-UPLOAD_FOLDER = os.path.join("uploads", "videos")
+UPLOAD_FOLDER = os.path.join("videotranslation", "uploads", "videos")
 ALLOWED_EXTENSIONS = {"mp4", "mov", "avi", "mkv", "webm"}
 
 def allowed_file(filename: str) -> bool:

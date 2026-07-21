@@ -30,10 +30,14 @@ pnpm-debug.log*
 *.sw?
 
 # Backend uploads & outputs (ignore all generated media except .gitkeep)
+backend/videotranslation/output/**/*
+!backend/videotranslation/output/**/.gitkeep
+backend/videotranslation/uploads/**/*
+!backend/videotranslation/uploads/**/.gitkeep
 backend/output/**/*
-!backend/output/**/.gitkeep
 backend/uploads/**/*
-!backend/uploads/**/.gitkeep
+**/output/*
+**/uploads/*
 
 # Python bytecode & cache
 __pycache__/

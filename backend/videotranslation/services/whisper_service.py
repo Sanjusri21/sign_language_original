@@ -76,10 +76,14 @@ def transcribe_audio(audio_path: str) -> str:
     # Resolve relative audio_path against backend root directory
     target_path = audio_path
     if not os.path.isabs(target_path):
-        base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+        base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
         possible_path = os.path.join(base_dir, target_path)
         if os.path.exists(possible_path):
             target_path = possible_path
+        else:
+            fallback_path = os.path.join(base_dir, "videotranslation", target_path)
+            if os.path.exists(fallback_path):
+                target_path = fallback_path
 
     if not os.path.exists(target_path):
         print(f"Audio file not found at: {target_path}")

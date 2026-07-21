@@ -44,7 +44,7 @@ def create_fallback_wav(audio_path: str, duration_sec: float = 10.0):
             frames.extend(struct.pack("<h", 0))
         wav_file.writeframes(frames)
 
-def extract_audio(video_path: str, output_dir: str = "output/audio") -> str:
+def extract_audio(video_path: str, output_dir: str = os.path.join("videotranslation", "output", "audio")) -> str:
     """
     Extracts complete audio from a video file using FFmpeg and saves it to output directory.
     Uses bundled imageio-ffmpeg binary if system ffmpeg is missing.

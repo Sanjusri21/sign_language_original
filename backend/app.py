@@ -12,12 +12,12 @@ app = Flask(__name__)
 CORS(app)
 
 # Ensure required directories exist
-os.makedirs(os.path.join("uploads", "videos"), exist_ok=True)
-os.makedirs(os.path.join("output", "audio"), exist_ok=True)
+os.makedirs(os.path.join("videotranslation", "uploads", "videos"), exist_ok=True)
+os.makedirs(os.path.join("videotranslation", "output", "audio"), exist_ok=True)
 
 # Register routes
-from routes.upload import upload_bp
-from routes.transcribe import transcribe_bp
+from videotranslation.routes.upload import upload_bp
+from videotranslation.routes.transcribe import transcribe_bp
 
 app.register_blueprint(upload_bp)
 app.register_blueprint(transcribe_bp)
@@ -25,11 +25,11 @@ app.register_blueprint(transcribe_bp)
 # Static file serving routes for video and audio playback
 @app.route("/uploads/videos/<filename>")
 def serve_video(filename):
-    return send_from_directory(os.path.join("uploads", "videos"), filename)
+    return send_from_directory(os.path.join("videotranslation", "uploads", "videos"), filename)
 
 @app.route("/output/audio/<filename>")
 def serve_audio(filename):
-    return send_from_directory(os.path.join("output", "audio"), filename)
+    return send_from_directory(os.path.join("videotranslation", "output", "audio"), filename)
 
 @app.route("/favicon.ico")
 def favicon():
