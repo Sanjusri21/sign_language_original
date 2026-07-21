@@ -28,3 +28,15 @@ pnpm-debug.log*
 *.njsproj
 *.sln
 *.sw?
+
+# Backend uploads & outputs (ignore all generated media except .gitkeep)
+backend/output/**/*
+!backend/output/**/.gitkeep
+backend/uploads/**/*
+!backend/uploads/**/.gitkeep
+
+# Python bytecode & cache
+__pycache__/
+*.py[cod]
+*$py.class
+
