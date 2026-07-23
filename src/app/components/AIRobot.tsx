@@ -106,6 +106,7 @@ export function AIRobot({
           cy="100"
           r="80"
           fill="url(#glowGrad)"
+          initial={{ r: 80, opacity: 0.5 }}
           animate={{ r: [78, 86, 78], opacity: [0.5, 0.8, 0.5] }}
           transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
         />
@@ -120,6 +121,7 @@ export function AIRobot({
           stroke="#4F7CFF"
           strokeWidth="1.5"
           strokeOpacity="0.35"
+          initial={{ scale: 1, strokeOpacity: 0.35 }}
           animate={{ scale: ringScale, strokeOpacity: [0.35, 0.55, 0.35] }}
           transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
           style={{ transformOrigin: "100px 100px", rotate: "-15deg" }}
@@ -135,6 +137,7 @@ export function AIRobot({
           stroke="#8B5CF6"
           strokeWidth="1"
           strokeOpacity="0.3"
+          initial={{ scale: 1, strokeOpacity: 0.3 }}
           animate={{ scale: ringScale, strokeOpacity: [0.3, 0.5, 0.3] }}
           transition={{
             duration: 2.8,
@@ -152,6 +155,7 @@ export function AIRobot({
           r="4"
           fill="#4F7CFF"
           filter="url(#softGlow)"
+          initial={{ rotate: 0 }}
           animate={{ rotate: [0, 360] }}
           transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
           style={{ transformOrigin: "100px 100px" }}
@@ -164,6 +168,7 @@ export function AIRobot({
           r="3"
           fill="#8B5CF6"
           filter="url(#softGlow)"
+          initial={{ rotate: 0 }}
           animate={{ rotate: [0, -360] }}
           transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
           style={{ transformOrigin: "100px 100px" }}
@@ -207,7 +212,7 @@ export function AIRobot({
           rx={eyeRx}
           ry={eyeRy}
           fill="url(#pupilGrad)"
-          initial={{ opacity: 1 }}
+          initial={{ ry: eyeRy, opacity: 1 }}
           animate={{
             ry: eyesClosed ? 1 : [eyeRy, eyeRy, eyeRy, 1, eyeRy],
             opacity: eyesClosed ? 0.4 : 1,
@@ -226,7 +231,7 @@ export function AIRobot({
           rx={eyeRx}
           ry={eyeRy}
           fill="url(#pupilGrad)"
-          initial={{ opacity: 1 }}
+          initial={{ ry: eyeRy, opacity: 1 }}
           animate={{
             ry: eyesClosed ? 1 : [eyeRy, eyeRy, eyeRy, 1, eyeRy],
             opacity: eyesClosed ? 0.4 : 1,
@@ -257,6 +262,7 @@ export function AIRobot({
             strokeWidth="2.5"
             fill="none"
             strokeLinecap="round"
+            initial={{ d: "M 88 113 Q 100 122 112 113" }}
             animate={{ d: ["M 88 113 Q 100 122 112 113", "M 88 112 Q 100 124 112 112", "M 88 113 Q 100 122 112 113"] }}
             transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
           />
@@ -289,6 +295,7 @@ export function AIRobot({
             r="3"
             fill={i === pulse ? "#a0bcff" : "#4F7CFF"}
             fillOpacity={i === pulse ? 1 : 0.4}
+            initial={{ r: 3 }}
             animate={{ r: i === pulse ? [3, 4, 3] : 3 }}
             transition={{ duration: 0.4, ease: "easeOut" }}
           />
@@ -306,6 +313,7 @@ export function AIRobot({
                 cy={100 + Math.sin(angle) * r}
                 r="3"
                 fill={i % 2 === 0 ? "#4F7CFF" : "#8B5CF6"}
+                initial={{ scale: 0, opacity: 0 }}
                 animate={{
                   scale: [0, 1.4, 0],
                   opacity: [0, 1, 0],
@@ -321,6 +329,7 @@ export function AIRobot({
           })}
           {/* Left Arm */}
 <motion.g
+  initial={{ rotate: -10 }}
   animate={
     animation === "celebrate"
       ? { rotate: [-20, -50, -20] }
@@ -372,6 +381,7 @@ export function AIRobot({
 </motion.g>
 {/* Right Arm */}
 <motion.g
+  initial={{ rotate: 10 }}
   animate={
     animation === "wave"
       ? {

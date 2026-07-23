@@ -3,6 +3,7 @@ import { Welcome } from "./screens/Welcome";
 import { Login } from "./screens/Login";
 import { Dashboard } from "./screens/Dashboard";
 import { VideoTranslate } from "./screens/VideoTranslate";
+import { TranslationProcessing } from "./screens/TranslationProcessing";
 import { TranslationResult } from "./screens/TranslationResult";
 import { AccessibilityTools } from "./screens/AccessibilityTools";
 import { LearningCenter } from "./screens/LearningCenter";
@@ -26,6 +27,10 @@ export const router = createBrowserRouter([
   {
     path: "/translate",
     Component: VideoTranslate,
+  },
+  {
+    path: "/processing",
+    Component: TranslationProcessing,
   },
   {
     path: "/result/:id",
